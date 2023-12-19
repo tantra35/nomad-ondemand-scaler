@@ -9,6 +9,54 @@ In his work, he uses an abstraction such as pools of nodes, which is a set of in
 
 Using pools allows you to more granularly allocate resources for workload, for example, it makes no sense to allocate instances with gpu for loads that do not require gpu, etc.
 
+
+
+## Config
+```
+poolconfig="./pools.yml" # <-- Setup location of yaml file, that describes node pools
+
+gc {
+  cicles_to_gc = 3
+  cicle_period = "1m"
+  allowed_freexpr = "min(round(totalnodes * 0.1), 2)"
+}
+
+stalenomadapi {
+  allow = true
+  duration = "30ms"
+}
+
+telemetry {
+  statsiteaddr = "statesitelocal.service.consul:8125"
+  prefix = "telemetry stats prefix"
+}
+
+hungprevention {
+ allow = true
+ detect_period = "30m"
+}
+```
+
+Config consist from 4 sections:
+* `gc` describes garbage collection:
+  * `cicles_to_gc` how many GC cycles instance must exist in idle state(without allocations) before it will be garbage collected
+  * `cicle_period` periodically of GC cycle(should be specified in form that understands [ParseDuration](https://pkg.go.dev/time#ParseDuration) function)
+  * `allowed_freexpr` expression that understands [exprtk](http://www.partow.net/programming/exprtk/). This expression defines allowed free nodes count in each pool (instances that will not garbage collected)) this is usefull to organize Hot pools
+  **Important** in expression can be used predefined variables:
+    * `totalnodes` - total nodes in pool
+    * `busynodes` - busy nodes in pool
+
+* `stalenomadapi` allow use [_inconsistent nomad api_](https://developer.hashicorp.com/nomad/api-docs#consistency-modes)
+  * `allow` allow using inconsistent nomad api(true|false)
+  * `duration` max allowed interval of inconsistency, within which response from nomad api will be considered as valid (should be specified in form that understands [ParseDuration](https://pkg.go.dev/time#ParseDuration) function), in other case request will be repeated with fully consistent requirements
+
+* `telemetry` - allow telemetry, now supports only statsite, but due library https://github.com/hashicorp/go-metrics used, no any problems to add other collectors, for example Prometheus, Datadog etc
+
+* `hungprevention` - describes parameters that prevents scale action hung(they can be caused by errors in the code of the scaler itself, as well as external reasons - for example, the cloud provider cannot allocate the requested resources)
+  * `allow` - prohibits or not setting a global timeout for scaleup actions (default: `false`)
+  * `detect_period` - timeout for scaleup action(should be specified in form that understands [ParseDuration](https://pkg.go.dev/time#ParseDuration) function)
+
+
 ## Pool configuration
 Pool configuration is a yaml file, something like this: 
 ```yaml
