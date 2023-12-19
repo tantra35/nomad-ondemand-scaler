@@ -36,7 +36,7 @@ provider:
 
 * `securitygroups` - list of [`security groups`](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-security-groups.html), which will be used when creating a custom `launch template` and does not override the `security groups` in the launch template that is passed in the `launchtemplate` parameter
 
-* `subnets` - subnets in which nodes will be created, understands both [`теги`](https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html)(in sample `Name` is a tag), and a special name `aws-ids` - позволяющее задать список идентификаторов подсетей. Allows to set a list of subnet IDs. If you need to specify several values, they are separated by commas, for example: `Name: "routed-us-east-1b,routed-us-east-2b"`(будут отобраны подсети у которых тег `Name` равен `routed-us-east-1b` или `routed-us-east-2b`)
+* `subnets` - subnets in which nodes will be created, understands both [`tags`](https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html)(in sample `Name` is a tag), and a special name `aws-ids` - which allows to set a list of subnet IDs. If you need to specify several values, they are separated by commas, for example: `Name: "routed-us-east-1b,routed-us-east-2b"`(subnets with tag `Name` equals to `routed-us-east-1b` or `routed-us-east-2b` will be selected)
 
 * `reqs` - the list of requirements for nodes is set as a list and individual requirements are combined according to the rule `AND(&)`
   * `Key` - it can take one of the following values:
