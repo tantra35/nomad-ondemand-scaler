@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package karpenterprovidergrpc;
 
-option go_package = "playrix.com/it/nomad-cluster-scalerv2/nodeprovider/karpenterprovidergrpc;karpenterprovidergrpc";
+option go_package = "github.com/tantra35/nomad-ondemand-scaler/nodeprovider/karpenterprovidergrpc;karpenterprovidergrpc";
 
 message ListInstancesRequest {
 	string PoolName = 1;
