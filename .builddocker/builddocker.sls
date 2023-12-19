@@ -1,0 +1,4 @@
+include:
+  - common
+  - docker
+  - golang
