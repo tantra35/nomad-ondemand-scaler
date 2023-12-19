@@ -1,4 +1,4 @@
-# Hashicorp Nomad ondemand horisontal cluster scaler
+# Hashicorp Nomad ondemand horizontal cluster autoscaler
 
 ## Purpose
 The cluster scaler is used to automatically adjust the cluster size to the existing workload according to the specified rules. 
@@ -53,7 +53,7 @@ Config consist from 4 sections:
 * `telemetry` - allow telemetry, now supports only statsite, but due library https://github.com/hashicorp/go-metrics used, no any problems to add other collectors, for example Prometheus, Datadog etc
 
 * `hungprevention` - describes parameters that prevents scale action hung(they can be caused by errors in the code of the scaler itself, as well as external reasons - for example, the cloud provider cannot allocate the requested resources)
-  * `allow` - prohibits or not setting a global timeout for scaleup actions (default: `false`)
+  * `allow` - prohibits or not setting of a global timeout for scaleup actions (default: `false`)
   * `detect_period` - timeout for scaleup action(should be specified in form that understands [ParseDuration](https://pkg.go.dev/time#ParseDuration) function)
 
 
