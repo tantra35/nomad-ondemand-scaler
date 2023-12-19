@@ -1,0 +1,55 @@
+syntax = "proto3";
+
+package karpenterprovidergrpc;
+
+option go_package = "playrix.com/it/nomad-cluster-scalerv2/nodeprovider/karpenterprovidergrpc;karpenterprovidergrpc";
+
+message ListInstancesRequest {
+	string PoolName = 1;
+	string clustername = 2;
+}
+
+message ListInstancesResponse {
+	repeated string instanseids = 1;
+}
+
+message DeleteInstancesRequest {
+	string PoolName = 1;
+	repeated string instanseids = 2;
+}
+
+message DeleteInstancesResponse {
+}
+
+message Requirement {
+	string Key = 1;
+	string Operator = 2;
+	repeated string Values = 3;
+}
+
+message AddInstancesSpec {
+	map<string, string> SecurityGroups = 1;
+	map<string, string> Subnets = 2;
+	map<string, string> Ami = 3;
+	string InstanceProfile = 4;
+	optional string LaunchTemplate = 5;
+	repeated Requirement Requirements = 6;
+	map<string, string> Resources = 7;
+}
+
+message AddInstancesRequest {
+	string PoolName = 1;
+	int32 count = 2;
+	AddInstancesSpec spec = 3;
+}
+  
+message AddInstancesResponse {
+	repeated string instanseids = 1;
+	string reason = 2;
+}
+
+service KarpenterService {
+	rpc ListInstances (ListInstancesRequest) returns (ListInstancesResponse);
+	rpc AddInstances (AddInstancesRequest) returns (AddInstancesResponse);
+	rpc RemoveInstances (DeleteInstancesRequest) returns (DeleteInstancesResponse);
+}
