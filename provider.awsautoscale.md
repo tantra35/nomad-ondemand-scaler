@@ -1,5 +1,5 @@
 # Node provider awsautoscale
-## Описание
+## Synopsis
 Manages the creation of nodes through management [`aws autoscale group`](https://docs.aws.amazon.com/autoscaling/ec2/userguide/auto-scaling-groups.html)
 
 ## Configuration

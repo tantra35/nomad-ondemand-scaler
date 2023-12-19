@@ -1,5 +1,5 @@
 # Node provider karpenter
-## Описание
+## Synopsis
 Manages node creation using part of the k8s scaler [karpenter](https://karpenter.sh/), it only works with the aws cloud. [Aditional plugin](https://github.com/tantra35/nomad-ondemand-scaler-karpenter-plugin) required for correct work.
 
 ## Configuration
