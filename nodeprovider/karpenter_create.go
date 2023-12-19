@@ -5,7 +5,7 @@ import (
 	"reflect"
 
 	"github.com/spf13/cast"
-	"playrix.com/it/nomad-cluster-scalerv2/nodeprovider/karpenterprovidergrpc"
+	"github.com/tantra35/nomad-ondemand-scaler/nodeprovider/karpenterprovidergrpc"
 )
 
 func Createkarpenterprovider(_params interface{}, _res *K8sKapenterProviderResources) (INodeProvider, error) {

@@ -1,4 +1,4 @@
-module playrix.com/it/nomad-cluster-scalerv2
+module github.com/tantra35/nomad-ondemand-scaler
 
 go 1.21
 

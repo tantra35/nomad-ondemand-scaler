@@ -9,7 +9,7 @@ import (
 	"github.com/hashicorp/go-hclog"
 	nomad "github.com/hashicorp/nomad/api"
 	"github.com/hashicorp/nomad/nomad/structs"
-	"playrix.com/it/nomad-cluster-scalerv2/nodeprovider"
+	"github.com/tantra35/nomad-ondemand-scaler/nodeprovider"
 )
 
 type PoolNodeConsume struct {

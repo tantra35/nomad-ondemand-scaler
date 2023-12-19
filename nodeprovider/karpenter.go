@@ -13,7 +13,7 @@ import (
 	"github.com/hashicorp/go-plugin"
 	nomad "github.com/hashicorp/nomad/api"
 	"github.com/hashicorp/nomad/nomad/structs"
-	"playrix.com/it/nomad-cluster-scalerv2/nodeprovider/karpenterprovidergrpc"
+	"github.com/tantra35/nomad-ondemand-scaler/nodeprovider/karpenterprovidergrpc"
 )
 
 type K8sKapenterProviderResources struct {

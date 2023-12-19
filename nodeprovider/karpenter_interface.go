@@ -6,7 +6,7 @@ import (
 
 	"github.com/hashicorp/go-plugin"
 	"google.golang.org/grpc"
-	"playrix.com/it/nomad-cluster-scalerv2/nodeprovider/karpenterprovidergrpc"
+	"github.com/tantra35/nomad-ondemand-scaler/nodeprovider/karpenterprovidergrpc"
 )
 
 type K8sKapenterProviderPluginInterface interface {

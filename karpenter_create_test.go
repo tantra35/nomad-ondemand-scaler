@@ -3,7 +3,7 @@ package main
 import (
 	"testing"
 
-	"playrix.com/it/nomad-cluster-scalerv2/nodeprovider"
+	"github.com/tantra35/nomad-ondemand-scaler/nodeprovider"
 )
 
 func TestCreatekarpenterprovider(t *testing.T) {
