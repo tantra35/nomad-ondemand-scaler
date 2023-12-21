@@ -467,7 +467,6 @@ func createPools(_stalecnf *StaleApiConfig, _nomadClient *nomad.Client, _poolSpe
 		}
 	}
 	if lerr != nil {
-		//TODO retry? Надо ли?
 		return nil, 0, fmt.Errorf("can't get nomad nodes due: %s", lerr)
 	}
 
@@ -491,7 +490,6 @@ func createPools(_stalecnf *StaleApiConfig, _nomadClient *nomad.Client, _poolSpe
 				}
 			}
 			if lerr != nil {
-				//TODO retry? Надо ли?
 				return nil, 0, fmt.Errorf("can't get nomad node %s info due: %s", lnomadNodeStub.ID, lerr)
 			}
 
@@ -507,7 +505,6 @@ func createPools(_stalecnf *StaleApiConfig, _nomadClient *nomad.Client, _poolSpe
 					}
 				}
 				if lerr != nil {
-					//TODO retry? Надо ли?
 					return nil, 0, fmt.Errorf("can't get nomad allocations on node %s due: %s", lnomadNodeStub.ID, lerr)
 				}
 
