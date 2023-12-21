@@ -15,8 +15,9 @@ import (
 )
 
 func TestNewAwsAutoscaleGroupProvider(t *testing.T) {
-	os.Setenv("AWS_ACCESS_KEY_ID", "AKIAZ2XHWNGPZWEZ2R2X")
-	os.Setenv("AWS_SECRET_ACCESS_KEY", "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")
+	// vault read secrets/aws/plr/atf01/creds/full
+	os.Setenv("AWS_ACCESS_KEY_ID", "insert here")
+	os.Setenv("AWS_SECRET_ACCESS_KEY", "insert here")
 	os.Setenv("AWS_DEFAULT_REGION", "eu-central-1")
 
 	provider, lerr := NewAwsAutoscaleGroupProvider("dockerworker-bastion-t3.medium")
@@ -29,8 +30,9 @@ func TestNewAwsAutoscaleGroupProvider(t *testing.T) {
 }
 
 func TestNewAwsAutoscaleGroupProviderSetNodeCount(t *testing.T) {
-	os.Setenv("AWS_ACCESS_KEY_ID", "AKIAZ2XHWNGPZWEZ2R2X")
-	os.Setenv("AWS_SECRET_ACCESS_KEY", "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")
+	// vault read secrets/aws/plr/atf01/creds/full
+	os.Setenv("AWS_ACCESS_KEY_ID", "insert here")
+	os.Setenv("AWS_SECRET_ACCESS_KEY", "insert here")
 	os.Setenv("AWS_DEFAULT_REGION", "eu-central-1")
 
 	provider, lerr := NewAwsAutoscaleGroupProvider("dockerworker-bastion-t3.medium")
@@ -48,8 +50,8 @@ func TestNewAwsAutoscaleGroupProviderSetNodeCount(t *testing.T) {
 
 func TestAwsApiDescribeInstances(t *testing.T) {
 	// vault read secrets/aws/plr/atf01/creds/full
-	os.Setenv("AWS_ACCESS_KEY_ID", "AKIAZ2XHWNGPRU65CLKX")
-	os.Setenv("AWS_SECRET_ACCESS_KEY", "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")
+	os.Setenv("AWS_ACCESS_KEY_ID", "insert here")
+	os.Setenv("AWS_SECRET_ACCESS_KEY", "insert here")
 	os.Setenv("AWS_DEFAULT_REGION", "eu-central-1")
 
 	cfg, _ := config.LoadDefaultConfig(context.TODO())
@@ -89,8 +91,8 @@ func TestAwsApiDescribeInstances(t *testing.T) {
 
 func TestAwsDetachInvalidInstance(t *testing.T) {
 	// vault read secrets/aws/plr/atf01/creds/full
-	os.Setenv("AWS_ACCESS_KEY_ID", "AKIAZ2XHWNGPYCFRBVHW")
-	os.Setenv("AWS_SECRET_ACCESS_KEY", "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")
+	os.Setenv("AWS_ACCESS_KEY_ID", "insert here")
+	os.Setenv("AWS_SECRET_ACCESS_KEY", "insert here")
 	os.Setenv("AWS_DEFAULT_REGION", "eu-central-1")
 
 	cfg, _ := config.LoadDefaultConfig(context.TODO())
