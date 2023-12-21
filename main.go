@@ -34,7 +34,7 @@ func processAllocs(_pools map[string]*Pool, allocsCh <-chan *nomad.Allocation) {
 
 func main() {
 	appLogger := hclog.New(&hclog.LoggerOptions{
-		Name:       "nomad-cluster-scalerv2",
+		Name:       "nomad-ondemand-scaler",
 		TimeFormat: "[2006-01-02 15:04:05.000]",
 		Level:      hclog.Info,
 	})
