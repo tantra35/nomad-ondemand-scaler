@@ -5,7 +5,7 @@ The nomad-ondemand-scaler is used to automatically adjust the cluster size when 
 
 The need for this project arose due to the lack of such scaling in the original [`nomad-autoscaler`](https://github.com/hashicorp/nomad-autoscaler)
 
-This scaler monitor blocked evals, and if it detect this, begin scaling action(selects the most suitable pool, calculate required amount of nodes to place required workload)
+This scaler monitor blocked [`evals`](https://developer.hashicorp.com/nomad/docs/v1.4.x/concepts/architecture#evaluation), and if it detect this, begin scaling action(selects the most suitable pool, calculate required amount of nodes to place required workload)
 
 As most of autoscalers this project also, have such abstraction as pools of nodes - which is a set of instances (nodes) combined by one or more parameters (these can be attributes, resources or devices available on pool instances). Pools are unique relative to each other and should not overlap
 
