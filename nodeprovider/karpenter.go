@@ -48,7 +48,7 @@ func getK8sKapenterProviderPLuginSingleton() (plugin.ClientProtocol, error) {
 			Plugins: map[string]plugin.Plugin{
 				"grpc": &K8sKapenterProviderPlugin{},
 			},
-			Cmd: exec.Command(filepath.Join(exPath, "nomad-cluster-scalerv2-karpenter-plugin"), os.Getenv("NOMAD_JOB_ID")),
+			Cmd: exec.Command(filepath.Join(exPath, "nomad-ondemand-scaler-karpenter-plugin"), os.Getenv("NOMAD_JOB_ID")),
 			AllowedProtocols: []plugin.Protocol{
 				plugin.ProtocolNetRPC, plugin.ProtocolGRPC,
 			},
@@ -283,9 +283,9 @@ func (p *K8sKapenterProvider) UpdateNode(_ctx context.Context, _nodes []*structs
 				}
 
 				if lerr != nil {
-					lloger.Error(fmt.Sprintf("can't set karpenter disiresize size to: %d(inc: %d), add only: %d due: %s", _totalcount, _inccount, 0, lerr))
+					lloger.Error(fmt.Sprintf("can't set karpenter disiresize to: %d(inc: %d), add only: %d due: %s", _totalcount, _inccount, 0, lerr))
 				} else {
-					lloger.Error(fmt.Sprintf("can't set karpenter disiresize size to: %d(inc: %d), add only: %d due: %s", _totalcount, _inccount, len(instances), lreason))
+					lloger.Error(fmt.Sprintf("can't set karpenter disiresize to: %d(inc: %d), add only: %d due: %s", _totalcount, _inccount, len(instances), lreason))
 				}
 
 				time.Sleep(10 * time.Second)

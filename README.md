@@ -1,4 +1,4 @@
-# Hashicorp Nomad ondemand horizontal cluster autoscaler
+# Hashicorp nomad ondemand horizontal cluster autoscaler
 
 ## Purpose
 The cluster scaler is used to automatically adjust the cluster size to the existing workload according to the specified rules. 
