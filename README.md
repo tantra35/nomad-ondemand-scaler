@@ -40,7 +40,7 @@ hungprevention {
 ```
 
 Config consist from 4 sections:
-* `gc` describes garbage collection:
+  * [`gc`](#anchors-gc)  describes garbage collection:
   * `cicles_to_gc` how many GC cycles instance must exist in idle state(without allocations) before it will be garbage collected
   * `cicle_period` periodically of GC cycle(should be specified in form that understands [ParseDuration](https://pkg.go.dev/time#ParseDuration) function)
   * `allowed_freexpr` expression that understands [exprtk](http://www.partow.net/programming/exprtk/). This expression defines allowed free nodes count in each pool (instances that will not garbage collected)) this is usefull to organize Hot pools
